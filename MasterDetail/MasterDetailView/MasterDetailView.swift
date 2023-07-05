@@ -12,6 +12,9 @@ struct MasterDetailView<DetailView: DetailViewsSvc, PhoneView: PhoneViewSvc, T: 
     @Binding var selectedView: T
     let detailView: DetailView
     let phoneView: PhoneView
+    let tabFontColor: Color
+    let selectedTabFontColor: Color
+    let selectedTabBackgroundColor: Color
     
     @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
     
@@ -24,7 +27,10 @@ struct MasterDetailView<DetailView: DetailViewsSvc, PhoneView: PhoneViewSvc, T: 
                     MasterView(
                         tabs: tabs,
                         selectedView: $selectedView,
-                        columnVisibility: $columnVisibility
+                        columnVisibility: $columnVisibility,
+                        tabFontColor: tabFontColor,
+                        selectedTabFontColor: selectedTabFontColor,
+                        selectedTabBackgroundColor: selectedTabBackgroundColor
                     )
                 } detail: {
                     detailView

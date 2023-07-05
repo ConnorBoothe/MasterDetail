@@ -11,6 +11,9 @@ struct MasterRowView<T: Hashable>: View {
     @Binding var selectedView: T
     @Binding var columnVisibility: NavigationSplitViewVisibility
     let tab: Tab<T>
+    let tabFontColor: Color
+    let selectedTabFontColor: Color
+    let selectedTabBackgroundColor: Color
     
     var body: some View {
         Button(action: {
@@ -28,17 +31,17 @@ struct MasterRowView<T: Hashable>: View {
             HStack {
                 Image(systemName: tab.icon)
                     .font(.system(size: 25))
-                    .foregroundColor(selectedView == tab.viewSelector ? Color.white : Color.black)
+                
                 Text(tab.name)
                     .font(.system(size: 25))
                    
-            }.foregroundColor(selectedView == tab.viewSelector ? Color.white : Color.black)
+            }.foregroundColor(selectedView == tab.viewSelector ? selectedTabFontColor : tabFontColor)
             .padding(.vertical, 5).padding(.horizontal, 15)
         }.background(
             ZStack {
                 if selectedView == tab.viewSelector {
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.red)
+                        .fill(selectedTabBackgroundColor)
                 }
             }
         ).padding(5)

@@ -20,7 +20,10 @@ struct MasterDetailSample1: View {
             tabs: tabs,
             selectedView: $selectedView,
             detailView: DetailViews1(viewSelection: $selectedView),
-            phoneView: PhoneView1(tabs: tabs)
+            phoneView: PhoneView1(tabs: tabs),
+            tabFontColor: Color.black,
+            selectedTabFontColor: Color.white,
+            selectedTabBackgroundColor: Color.red
         )
     }
 }

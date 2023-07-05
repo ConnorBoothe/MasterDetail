@@ -11,6 +11,9 @@ struct MasterView<T: Hashable>: View {
     let tabs: [Tab<T>]
     @Binding var selectedView: T
     @Binding var columnVisibility: NavigationSplitViewVisibility
+    let tabFontColor: Color
+    let selectedTabFontColor: Color
+    let selectedTabBackgroundColor: Color
     
     var body: some View {
         List {
@@ -18,7 +21,10 @@ struct MasterView<T: Hashable>: View {
                 MasterRowView(
                     selectedView: $selectedView,
                     columnVisibility: $columnVisibility,
-                    tab: tab
+                    tab: tab,
+                    tabFontColor: tabFontColor,
+                    selectedTabFontColor: selectedTabFontColor,
+                    selectedTabBackgroundColor: selectedTabBackgroundColor
                 )
             }
         }
